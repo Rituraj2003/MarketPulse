@@ -45,13 +45,13 @@ const StockChart = () => {
   const [selected, setSelected] = useState("");
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   // Fetch user's watchlist
   useEffect(() => {
     if (!user) return;
     // new—grab only the stocks array
     axios
-      .get(`http://localhost:5000/api/watchlist?userId=${user.uid}`)
+      .get(`${API_BASE_URL}/api/watchlist?userId=${user.uid}`)
       .then((res) => {
         const stocks = res.data.stocks || [];
         setWatchlist(stocks);

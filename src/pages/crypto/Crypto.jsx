@@ -69,13 +69,13 @@ const Crypto = () => {
       setAdded(false);
     }
   }, [search]);
-
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   // Check if in crypto watchlist
   useEffect(() => {
     if (!user || search.page !== "/crypto" || !search.term) return;
 
     axios
-      .get(`http://localhost:5000/api/watchlist?userId=${user.uid}`)
+      .get(`${API_BASE_URL}/api/watchlist?userId=${user.uid}`)
       .then((res) => {
         const cryptos = res.data.cryptos || [];
         setAdded(
@@ -92,7 +92,7 @@ const Crypto = () => {
     if (!user) return;
     setAdding(true);
     try {
-      await axios.post("http://localhost:5000/api/watchlist", {
+      await axios.post(`${API_BASE_URL}/api/watchlist`, {
         userId: user.uid,
         symbol: search.term.toUpperCase(),
         category: "crypto",

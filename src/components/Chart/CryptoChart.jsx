@@ -67,11 +67,12 @@ const CryptoChart = () => {
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   // Fetch watchlist
   useEffect(() => {
     if (!user) return;
     axios
-      .get(`http://localhost:5000/api/watchlist?userId=${user.uid}`)
+      .get(`${API_BASE_URL}/api/watchlist?userId=${user.uid}`)
       .then((res) => {
         const cryptos = res.data.cryptos || [];
         setWatchlist(cryptos);

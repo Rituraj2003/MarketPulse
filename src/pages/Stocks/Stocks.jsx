@@ -45,12 +45,13 @@ const Stocks = () => {
     }
   }, [search]);
 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   // Check if this symbol is already in the stock watchlist
   useEffect(() => {
     if (!user || search.page !== "/stocks" || !search.term) return;
 
     axios
-      .get(`http://localhost:5000/api/watchlist?userId=${user.uid}`)
+      .get(`${API_BASE_URL}/api/watchlist?userId=${user.uid}`)
       .then((res) => {
         const stocks = res.data.stocks || [];
         setAdded(
@@ -68,7 +69,7 @@ const Stocks = () => {
     setAdding(true);
 
     try {
-      await axios.post("http://localhost:5000/api/watchlist", {
+      await axios.post(`${API_BASE_URL}/api/watchlist`, {
         userId: user.uid,
         symbol: search.term.toUpperCase(),
         category: "stock",    // <–– use "stock" here
