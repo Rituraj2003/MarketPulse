@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import "./TopgainerLoser.css";
+import "./TopGainerLoser.css";
 const API_KEY = import.meta.env.VITE_FINNHUB_API_KEY; // <-- Paste your API key here
 const GAINER_SYMBOLS = ["AAPL", "GOOGL", "MSFT", "AMZN", "META"];
 const LOSER_SYMBOLS = ["TSLA", "NFLX", "NVDA", "BABA", "INTC"];
 
-const TopgainerLoser = () => {
+const TopGainerLoser = () => {
   const [gainers, setGainers] = useState([]);
   const [losers, setLosers] = useState([]);
 
@@ -95,4 +95,4 @@ const TopgainerLoser = () => {
   );
 };
 
-export default TopgainerLoser;
+export default TopGainerLoser;
