@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const MONGODB_URL =
-  "mongodb+srv://RiturajMishra:Rituraj2003@cluster0.khpnbjh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  process.env.MONGODB_URL; // Default to local MongoDB if not set
 
 mongoose.connect(MONGODB_URL, {
   useNewUrlParser: true,
