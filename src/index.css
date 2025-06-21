@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #e4f0f5;
+  background: linear-gradient(
+    90deg,
+    rgba(228, 240, 245, 1) 0%,
+    rgba(237, 245, 240, 1) 50%,
+    rgba(247, 245, 240, 1) 100%
+  );
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* index.css or App.css */
+
+/* index.css */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111827;
+}
+
+[data-theme="dark"] {
+  --bg-color: #111827;
+  --text-color: #f9fafb;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

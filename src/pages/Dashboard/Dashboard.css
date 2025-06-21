@@ -1,0 +1,161 @@
+/* Dashboard.css */
+
+/* Main container */
+.dashboard-container {
+  background: #f7fafd;
+  min-height: 100vh;
+  padding: 2.5rem 1rem 2rem 1rem;
+}
+.dashboard-container h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.dashboard-top-section {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2.5rem;
+  margin: 2.5rem auto 2.5rem auto;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Both cards: StockDetails and Metrics */
+.dashboard-top-section > * {
+  flex: 1 1 0;
+  min-width: 340px;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Metrics section inside the card */
+.metrics-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.dashboard-container {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.datacard {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.chart-wrapper {
+  background-color: var(--accent);
+  padding: 1rem;
+  border-radius: 10px;
+  color: var(--text-color);
+}
+
+
+/* Data cards inside metrics */
+.datacard {
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(37,99,235,0.07);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #222;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.datacard:hover {
+  box-shadow: 0 8px 32px rgba(37,99,235,0.13);
+  transform: translateY(-4px) scale(1.03);
+}
+.datacard .datacard-value {
+  color: #2563eb;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 0.3rem;
+}
+
+/* Charts section */
+.charts-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  margin: 2.5rem auto 0 auto;
+  max-width: 1200px;
+}
+
+.chart-wrapper {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 340px;
+  flex: 1 1 380px;
+  max-width: 540px;
+}
+
+.chart-wrapper h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #2563eb;
+}
+
+.market-status-bar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.market-indicator.open {
+  color: green;
+}
+
+.market-indicator.closed {
+  color: red;
+}
+
+
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .dashboard-top-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  .dashboard-top-section > * {
+    max-width: 98vw;
+    min-width: 0;
+    padding: 1.2rem 0.5rem;
+  }
+  .charts-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .chart-wrapper {
+    min-width: 90vw;
+    max-width: 98vw;
+  }
+
+}

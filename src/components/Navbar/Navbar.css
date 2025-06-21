@@ -1,0 +1,137 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #444;
+  padding: 0.7rem 2rem;
+  color: #fff;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  width: 38px;
+  height: 38px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #19d4fe;
+  margin-right: 2rem;
+}
+
+/* Navbar.css */
+.theme-toggle-btn {
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: rotate(20deg);
+}
+
+
+
+.navbar-search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-search input {
+  width: 260px;
+  padding: 0.5rem 1rem;
+  border-radius: 20px 0 0 20px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.navbar-search button {
+  padding: 0.5rem 1.2rem;
+  border-radius: 0 20px 20px 0;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+  color: #19d4fe;
+}
+
+.navbar-profile {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  z-index: 100;
+  min-width: 100px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.profile-dropdown button {
+  background: #3c3edf;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.profile-dropdown button:hover {
+  background: #d32f2f;
+}
+.user-name {
+  font-size: 1rem;
+  color: white;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .navbar-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,98 @@
+/* StockChart.css */
+
+/* Container for the entire chart component */
+.stock-chart-wrapper {
+  width: 80vw;
+  max-width: 900px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading “Your Watchlist” */
+.stock-chart-wrapper .chart-title {
+  font-size: 1.5rem;         /* text-xl */
+  font-weight: 600;          /* font-semibold */
+  color: #1e293b;            /* slate‑800 */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Button container */
+.stock-chart-wrapper .button-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+/* Watchlist buttons */
+.stock-chart-wrapper .button-bar button {
+  background: #e0f2fe;        /* sky‑100 */
+  color: #0369a1;             /* sky‑600 */
+  border: 1px solid #bae6fd;  /* sky‑200 */
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.stock-chart-wrapper .button-bar button:hover {
+  background: #bae6fd;        /* sky‑200 */
+}
+
+.stock-chart-wrapper .button-bar button.btn-active {
+  background: #0369a1;        /* sky‑600 */
+  color: #fff;
+  border-color: #0369a1;
+}
+
+/* Chart card wrapper */
+.stock-chart-wrapper .chart-card {
+  width: 100%;
+  /* Maintain an aspect ratio box */
+  position: relative;
+  padding-top: 50%;           /* 2:1 aspect ratio (height = 50% of width) */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Make canvas fill that aspect‑ratio box */
+.stock-chart-wrapper .chart-card canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Loading & no-data states */
+.stock-chart-wrapper .loading,
+.stock-chart-wrapper .no-data {
+  width: 100%;
+  text-align: center;
+  color: #64748b;            /* slate‑500 */
+  padding: 1rem 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .stock-chart-wrapper {
+    width: 95vw;
+    margin: 1.5rem auto;
+  }
+  .stock-chart-wrapper .chart-title {
+    font-size: 1.25rem;
+  }
+  .stock-chart-wrapper .button-bar {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .stock-chart-wrapper .chart-card {
+    padding-top: 60%;         /* a bit taller on narrow screens */
+  }
+}

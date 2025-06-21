@@ -1,0 +1,38 @@
+.top-movers-wrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.mover-column {
+  flex: 1;
+  background-color: #f8fafc;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px #e2e8f0;
+}
+
+.mover-column h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #2563eb;
+}
+
+.mover-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.mover-item.up {
+  color: green;
+}
+
+.mover-item.down {
+  color: red;
+}

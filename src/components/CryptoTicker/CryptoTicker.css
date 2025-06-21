@@ -1,0 +1,66 @@
+/* src/components/CryptoTicker/CryptoTicker.css */
+
+.crypto-ticker {
+  overflow: hidden;
+  background: #f8fafc;        /* slate-50 */
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.5rem 0;
+}
+
+.ticker-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+  margin-right: 2rem;
+  font-size: 0.875rem;         /* text-sm */
+  color: #334155;              /* slate-700 */
+}
+
+.ticker-item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.ticker-item .symbol {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.ticker-item .price {
+  display: flex;
+  align-items: baseline;
+}
+
+.ticker-item .price small {
+  font-size: 0.7rem;
+  margin-left: 0.25rem;
+}
+
+.ticker-item .price.up {
+  color: #16a34a;              /* green-600 */
+}
+
+.ticker-item .price.down {
+  color: #dc2626;              /* red-600 */
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Pause animation on hover */
+.crypto-ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
