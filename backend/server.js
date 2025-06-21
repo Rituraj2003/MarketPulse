@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -9,8 +8,7 @@ const axios = require("axios");
 app.use(cors());
 app.use(express.json());
 
-const MONGODB_URL =
-  process.env.MONGODB_URL; // Default to local MongoDB if not set
+const MONGODB_URL = process.env.MONGODB_URL; // Default to local MongoDB if not set
 
 mongoose.connect(MONGODB_URL, {
   useNewUrlParser: true,
@@ -20,7 +18,7 @@ mongoose.connect(MONGODB_URL, {
 const watchlistSchema = new mongoose.Schema({
   userId: String,
   stocks: [String],
-  cryptos:[String],
+  cryptos: [String],
 });
 
 const Watchlist = mongoose.model("Watchlist", watchlistSchema);
@@ -39,18 +37,17 @@ app.post("/api/watchlist", async (req, res) => {
   );
   res.json({
     success: true,
-    stocks:  result.stocks,
+    stocks: result.stocks,
     cryptos: result.cryptos,
   });
 });
-
 
 // Get watchlist
 app.get("/api/watchlist", async (req, res) => {
   const { userId } = req.query;
   const doc = await Watchlist.findOne({ userId });
   res.json({
-    stocks:  doc?.stocks  || [],
+    stocks: doc?.stocks || [],
     cryptos: doc?.cryptos || [],
   });
 });
@@ -66,24 +63,34 @@ app.get("/api/yahoo-chart", async (req, res) => {
   }
 });
 
+const cache = {};
+
 app.get("/api/coingecko", async (req, res) => {
   const url = req.query.url;
   if (!url) return res.status(400).send("Missing URL");
 
-  const fullUrl = `https://api.coingecko.com${url}`;
+  // Use the full URL as the cache key
+  if (cache[url] && Date.now() - cache[url].timestamp < 2 * 60 * 1000) {
+    // 2 minutes cache
+    return res.json(cache[url].data);
+  }
 
+  const fullUrl = `https://api.coingecko.com${url}`;
   try {
     const { data } = await axios.get(fullUrl);
-    // If search endpoint and no coins found
-    if (url.includes("/search") && (!data.coins || data.coins.length === 0)) {
-      return res.status(404).json({ error: "Coin not found" });
-    }
+    cache[url] = { data, timestamp: Date.now() };
     res.json(data);
   } catch (err) {
+    if (err.response) {
+      res.status(err.response.status).json({
+        error: err.response.data?.error || err.message,
+        status: err.response.status,
+      });
+    } else {
+      res.status(500).json({ error: "Failed to fetch from CoinGecko" });
+    }
     console.error("CoinGecko fetch failed:", err.message);
-    res.status(500).json({ error: "Failed to fetch from CoinGecko" });
   }
 });
-
 
 app.listen(5000, () => console.log("Server running on port 5000"));

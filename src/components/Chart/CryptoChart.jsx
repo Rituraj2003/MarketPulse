@@ -82,13 +82,24 @@ const CryptoChart = () => {
 
   // Fetch chart for selected
   useEffect(() => {
-    if (!selected) return;
-    setLoading(true);
-    fetchCryptoChartData(selected)
-      .then((data) => setChartData(data))
-      .catch((err) => console.error("Chart error:", err.message))
-      .finally(() => setLoading(false));
-  }, [selected]);
+  if (!selected) return;
+  setLoading(true);
+  fetchCryptoChartData(selected)
+    .then((data) => setChartData(data))
+    .catch((err) => {
+      if (err.response && err.response.status === 429) {
+        setChartData(null);
+        alert("CoinGecko rate limit exceeded. Please try again later.");
+      } else if (err.response && err.response.status === 404) {
+        setChartData(null);
+        alert("Coin not found.");
+      } else {
+        setChartData(null);
+        alert("Chart error: " + (err.response?.data?.error || err.message));
+      }
+    })
+    .finally(() => setLoading(false));
+}, [selected]);
 
   const options = {
     responsive: true,
