@@ -16,7 +16,7 @@ import "./Dashboard.css";
 import TopgainerLoser from "../../components/TopGainerLoser/TopgainerLoser";
 import { fetchCryptoMetrics } from "../../services/cryptoService";
 import StockDetails from "../../components/StockDetails/StockDetails";
-import { SearchContext } from "../../context/SearchContext"; // Make sure the path matches your project
+import { SearchContext } from "../../context/Searchcontext"; // Make sure the path matches your project
 import TopMovers from "../../components/TopMovers/TopMovers";
 
 const FINNHUB_API_KEY = import.meta.env.VITE_FINNHUB_API_KEY;

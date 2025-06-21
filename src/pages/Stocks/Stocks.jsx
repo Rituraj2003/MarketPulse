@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { SearchContext } from "../../context/SearchContext";
+import { SearchContext } from "../../context/Searchcontext";
 import StockTicker from "../../components/StockTicker/StockTicker";
 import { Usercontext } from "../../context/Usercontext";
 import "./Stocks.css";

@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Login from './pages/Login/Login'
 import { UserProvider } from './context/Usercontext'
 import Stocks from './pages/Stocks/Stocks'
-import { SearchProvider } from './context/SearchContext'
+import { SearchProvider } from './context/Searchcontext'
 import Crypto from './pages/crypto/Crypto'
 import News from './pages/News/News'
 

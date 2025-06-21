@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { SearchContext } from "../../context/SearchContext";
+import { SearchContext } from "../../context/Searchcontext";
 import { Usercontext } from "../../context/Usercontext";
 import CryptoTicker from "../../components/CryptoTicker/CryptoTicker";
 import CryptoNews from "../../components/CryptoNews/CryptoNews";

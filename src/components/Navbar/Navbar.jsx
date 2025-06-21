@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { Usercontext } from "../../context/Usercontext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
-import { SearchContext } from "../../context/SearchContext"; // Use consistent casing
+import { SearchContext } from "../../context/Searchcontext"; // Use consistent casing
 
 const Navbar = () => {
   const [searchInput, setSearchInput] = useState("");
